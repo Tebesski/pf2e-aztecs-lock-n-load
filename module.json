@@ -1,0 +1,20 @@
+{
+   "id": "pf2e-aztecs-lock-n-load",
+   "title": "PF2e Aztec's Lock & Load",
+   "description": "Add SFX to your guns!",
+   "version": "#{VERSION}#",
+   "compatibility": {
+      "minimum": "13",
+      "verified": "14"
+   },
+   "esmodules": ["src/module.mjs"],
+   "authors": [
+      {
+         "name": "Aztec",
+         "discord": "two.bears.high.fiving"
+      }
+   ],
+   "url": "#{URL}#",
+   "manifest": "#{MANIFEST}#",
+   "download": "#{DOWNLOAD}#"
+}
