@@ -20,10 +20,8 @@ export async function injectSFXTab(app, html) {
    const $html = _asJQuery(html)
    if (!$html) return
 
-   // Prevent duplicate injections
    if ($html.find(".sfx-tab-content").length > 0) return
 
-   // Track active tab persistently
    if (app._sfxActiveTab === undefined) {
       app._sfxActiveTab = app._tabs?.[0]?.active ?? "description"
    }
@@ -46,7 +44,6 @@ export async function injectSFXTab(app, html) {
       },
    )
 
-   // Inject the Nav Item and Tab Content
    const sfxNav = $(
       '<a class="item sfx-nav-item" data-tab="sfx" title="SFX"><i class="fa-solid fa-volume"></i></a>',
    )
@@ -57,13 +54,11 @@ export async function injectSFXTab(app, html) {
    )
    body.append(tabElement)
 
-   // Handle clicks securely without duplicating native Foundry bindings
    $html.on("click", ".sheet-navigation .item, .tabs [data-tab]", (ev) => {
       const clickedTab = ev.currentTarget.dataset.tab
       app._sfxActiveTab = clickedTab
 
       if (clickedTab === "sfx") {
-         // Activate custom tab manually
          $html
             .find(".sheet-navigation .item, .tabs [data-tab]")
             .removeClass("active")
@@ -73,16 +68,13 @@ export async function injectSFXTab(app, html) {
             .removeClass("active")
          tabElement.addClass("active")
 
-         // CRITICAL: Update native Tabs controller so it allows switching back to Description
          if (app._tabs?.[0]) app._tabs[0].active = "sfx"
       } else {
-         // Deactivate custom tab and let native Foundry handle the rest
          sfxNav.removeClass("active")
          tabElement.removeClass("active")
       }
    })
 
-   // Restore custom tab state on re-renders (like when a file is chosen)
    if (app._sfxActiveTab === "sfx") {
       $html
          .find(".sheet-navigation .item, .tabs [data-tab]")
@@ -94,7 +86,6 @@ export async function injectSFXTab(app, html) {
       if (app._tabs?.[0]) app._tabs[0].active = "sfx"
    }
 
-   // Bind File Picker
    tabElement.find(".file-picker").on("click", (event) => {
       event.preventDefault()
       const target = event.currentTarget.dataset.target
@@ -116,7 +107,6 @@ export async function injectSFXTab(app, html) {
       }).browse()
    })
 
-   // Bind Playback Preview
    tabElement.find(".play-sound").on("click", (event) => {
       event.preventDefault()
       const field = event.currentTarget.dataset.field

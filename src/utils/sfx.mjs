@@ -7,26 +7,21 @@ export async function resolveWildcard(src) {
       const dirPath = src.substring(0, lastSlash) || "/"
       const fileNamePattern = src.substring(lastSlash + 1)
 
-      // Safely get FilePicker across Foundry versions
       const FP =
          foundry.applications?.apps?.FilePicker?.implementation ??
          globalThis.FilePicker
 
-      // Fetch directory contents
       const result = await FP.browse(source, dirPath)
 
-      // Convert wildcard (e.g., "reload*.ogg") to regex (e.g., /^reload.*\.ogg$/)
       const regexStr =
          "^" + fileNamePattern.replace(/\./g, "\\.").replace(/\*/g, ".*") + "$"
       const regex = new RegExp(regexStr, "i")
 
-      // Filter files matching the wildcard
       const matches = result.files.filter((file) => {
          const fileName = file.split("/").pop()
          return regex.test(fileName)
       })
 
-      // Pick a random match
       if (matches.length > 0) {
          const randomIndex = Math.floor(Math.random() * matches.length)
          return matches[randomIndex]
@@ -38,7 +33,7 @@ export async function resolveWildcard(src) {
       )
    }
 
-   return src // Fallback to original string if resolution fails
+   return src
 }
 
 export async function playSFX(src) {
@@ -46,7 +41,6 @@ export async function playSFX(src) {
    const resolvedSrc = await resolveWildcard(src)
 
    if (resolvedSrc) {
-      // Safely get AudioHelper across Foundry versions
       const helper = foundry.audio?.AudioHelper ?? globalThis.AudioHelper
 
       if (!helper) {

@@ -10,7 +10,6 @@ Hooks.once("init", () => {
    registerChatMessageHooks()
 })
 
-// The UI framework is only fully constructed during the ready hook
 Hooks.once("ready", () => {
    registerNotificationInterceptors()
 })
