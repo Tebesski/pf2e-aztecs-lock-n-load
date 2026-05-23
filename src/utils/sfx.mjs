@@ -1,55 +1,76 @@
-export async function resolveWildcard(src) {
-   if (!src || !src.includes("*")) return src
+import { MODULE_ID } from "../constants.mjs"
 
+export let moduleSocket
+
+export function registerSocket() {
+   if (game.modules.get("socketlib")?.active) {
+      moduleSocket = globalThis.socketlib.registerModule(MODULE_ID)
+
+      if (moduleSocket) {
+         moduleSocket.register("resolveWildcard", resolveWildcardAsGM)
+      }
+   }
+}
+
+async function resolveWildcardAsGM(src) {
    try {
-      const source = src.startsWith("s3:") ? "s3" : "data"
+      let source = "data"
+      if (typeof ForgeVTT !== "undefined" && ForgeVTT.usingTheForge)
+         source = "forgevtt"
+      else if (src.startsWith("s3:")) source = "s3"
+
       const lastSlash = src.lastIndexOf("/")
-      const dirPath = src.substring(0, lastSlash) || "/"
-      const fileNamePattern = src.substring(lastSlash + 1)
+      const dirPath = lastSlash !== -1 ? src.substring(0, lastSlash) : ""
+      const fileNamePattern =
+         lastSlash !== -1 ? src.substring(lastSlash + 1) : src
 
       const FP =
          foundry.applications?.apps?.FilePicker?.implementation ??
          globalThis.FilePicker
-
       const result = await FP.browse(source, dirPath)
 
       const regexStr =
          "^" + fileNamePattern.replace(/\./g, "\\.").replace(/\*/g, ".*") + "$"
       const regex = new RegExp(regexStr, "i")
 
-      const matches = result.files.filter((file) => {
-         const fileName = file.split("/").pop()
-         return regex.test(fileName)
-      })
+      const files = result.files.filter((f) => regex.test(f.split("/").pop()))
+      if (files.length === 0) return null
 
-      if (matches.length > 0) {
-         const randomIndex = Math.floor(Math.random() * matches.length)
-         return matches[randomIndex]
-      }
+      return files[Math.floor(Math.random() * files.length)]
    } catch (err) {
-      console.warn(
-         `pf2e-aztecs-lock-n-load | Failed to resolve wildcard audio: ${src}`,
-         err,
-      )
+      console.error(`[${MODULE_ID}] Failed to browse directory for ${src}`, err)
+      return null
    }
-
-   return src
 }
 
 export async function playSFX(src) {
    if (!src) return
-   const resolvedSrc = await resolveWildcard(src)
 
-   if (resolvedSrc) {
-      const helper = foundry.audio?.AudioHelper ?? globalThis.AudioHelper
+   let finalSrc = src
 
-      if (!helper) {
-         console.error(
-            "pf2e-aztecs-lock-n-load | AudioHelper could not be found.",
-         )
-         return
+   if (src.includes("*")) {
+      if (game.user.isGM) {
+         finalSrc = await resolveWildcardAsGM(src)
+      } else {
+         if (!moduleSocket) {
+            return
+         }
+
+         const gmOnline = game.users.some((u) => u.isGM && u.active)
+         if (!gmOnline) {
+            return
+         }
+
+         finalSrc = await moduleSocket.executeAsGM("resolveWildcard", src)
       }
+   }
 
-      helper.play({ src: resolvedSrc, volume: 0.8, autoplay: true }, false)
+   if (!finalSrc) return
+
+   const helper = foundry.audio?.AudioHelper ?? globalThis.AudioHelper
+   if (helper) {
+      const pushToOthers = game.settings.get(MODULE_ID, "globalAudio")
+      const vol = game.settings.get(MODULE_ID, "sfxVolume") ?? 0.8
+      helper.play({ src: finalSrc, volume: vol, autoplay: true }, pushToOthers)
    }
 }

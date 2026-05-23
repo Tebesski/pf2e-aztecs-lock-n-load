@@ -37,11 +37,33 @@ export function registerChatMessageHooks() {
          }
       }
    })
+
+   Hooks.on("createChatMessage", (message) => {
+      if (message.author.id !== game.user.id) return
+
+      const pf2eFlags = message.flags?.pf2e
+
+      if (pf2eFlags?.context?.type === "attack-roll") {
+         const outcome = pf2eFlags.context?.outcome
+
+         if (outcome === "failure" || outcome === "criticalFailure") {
+            let weapon = message.item
+            if (!weapon && pf2eFlags.origin?.uuid) {
+               weapon = fromUuidSync(pf2eFlags.origin.uuid)
+            }
+
+            if (weapon?.isOfType("weapon")) {
+               const moduleFlags = weapon.flags[MODULE_ID]
+               if (moduleFlags?.miss) {
+                  playSFX(moduleFlags.miss)
+               }
+            }
+         }
+      }
+   })
 }
 
 export function registerNotificationInterceptors() {
-   if (!ui.notifications) return
-
    const originalWarn = ui.notifications.warn
 
    ui.notifications.warn = function (message, options) {

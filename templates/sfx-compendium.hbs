@@ -1,0 +1,41 @@
+<div class="sfx-compendium-wrapper">
+   <div class="sfx-compendium">
+      {{#each configs}}
+         <div class="sfx-config-item flexrow">
+            <div class="sfx-details">
+               <strong>{{this.name}}</strong><br />
+               <small>
+                  {{#if this.base}}{{localize
+                        "PF2E-AZTECS-LOCK-N-LOAD.Compendium.Base"
+                     }}:
+                     {{this.base}}{{/if}}
+                  {{#if this.slug}}
+                     |
+                     {{localize "PF2E-AZTECS-LOCK-N-LOAD.Compendium.Slug"}}:
+                     {{this.slug}}{{/if}}
+               </small>
+            </div>
+            <div class="controls sfx-controls">
+               <a
+                  class="edit-config"
+                  data-id="{{this.id}}"
+                  title="{{localize 'Edit'}}"
+               ><i class="fas fa-edit"></i></a>
+               <a
+                  class="delete-config"
+                  data-id="{{this.id}}"
+                  title="{{localize 'Delete'}}"
+               ><i class="fas fa-trash"></i></a>
+            </div>
+         </div>
+      {{else}}
+         <p class="no-configs">{{localize
+               "PF2E-AZTECS-LOCK-N-LOAD.Compendium.NoConfigs"
+            }}</p>
+      {{/each}}
+   </div>
+   <footer>
+      <button type="button" class="add-config"><i class="fas fa-plus"></i>
+         {{localize "PF2E-AZTECS-LOCK-N-LOAD.Compendium.AddBlank"}}</button>
+   </footer>
+</div>

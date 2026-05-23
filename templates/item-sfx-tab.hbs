@@ -1,6 +1,13 @@
+<div class="form-group sfx-compendium-controls">
+   <button type="button" class="sfx-btn-save"><i class="fas fa-save"></i>
+      {{localize "PF2E-AZTECS-LOCK-N-LOAD.Tab.SaveConfig"}}</button>
+   <button type="button" class="sfx-btn-load"><i class="fas fa-download"></i>
+      {{localize "PF2E-AZTECS-LOCK-N-LOAD.Tab.ApplyConfig"}}</button>
+</div>
+
 <div class="form-group">
-   <label>Reloading</label>
-   <div class="form-fields">
+   <label>{{localize "PF2E-AZTECS-LOCK-N-LOAD.Config.Reloading"}}</label>
+   <div class="form-fields sfx-fields">
       <input
          type="text"
          name="flags.pf2e-aztecs-lock-n-load.reloading"
@@ -9,27 +16,27 @@
       />
       <button
          type="button"
-         class="file-picker"
+         class="file-picker sfx-btn-icon"
          data-type="audio"
          data-target="flags.pf2e-aztecs-lock-n-load.reloading"
-         title="Browse Files"
+         title="{{localize 'PF2E-AZTECS-LOCK-N-LOAD.Tab.BrowseFiles'}}"
          tabindex="-1"
       >
          <i class="fas fa-file-audio"></i>
       </button>
       <button
          type="button"
-         class="play-sound"
+         class="play-sound sfx-btn-icon"
          data-field="reloading"
-         title="Play Sound"
+         title="{{localize 'PF2E-AZTECS-LOCK-N-LOAD.Tab.PlaySound'}}"
       >
          <i class="fas fa-play"></i>
       </button>
    </div>
 </div>
 <div class="form-group">
-   <label>Dry Fire</label>
-   <div class="form-fields">
+   <label>{{localize "PF2E-AZTECS-LOCK-N-LOAD.Config.DryFire"}}</label>
+   <div class="form-fields sfx-fields">
       <input
          type="text"
          name="flags.pf2e-aztecs-lock-n-load.empty"
@@ -38,27 +45,27 @@
       />
       <button
          type="button"
-         class="file-picker"
+         class="file-picker sfx-btn-icon"
          data-type="audio"
          data-target="flags.pf2e-aztecs-lock-n-load.empty"
-         title="Browse Files"
+         title="{{localize 'PF2E-AZTECS-LOCK-N-LOAD.Tab.BrowseFiles'}}"
          tabindex="-1"
       >
          <i class="fas fa-file-audio"></i>
       </button>
       <button
          type="button"
-         class="play-sound"
+         class="play-sound sfx-btn-icon"
          data-field="empty"
-         title="Play Sound"
+         title="{{localize 'PF2E-AZTECS-LOCK-N-LOAD.Tab.PlaySound'}}"
       >
          <i class="fas fa-play"></i>
       </button>
    </div>
 </div>
 <div class="form-group">
-   <label>Change Damage Type</label>
-   <div class="form-fields">
+   <label>{{localize "PF2E-AZTECS-LOCK-N-LOAD.Config.ChangeDamageType"}}</label>
+   <div class="form-fields sfx-fields">
       <input
          type="text"
          name="flags.pf2e-aztecs-lock-n-load.damageType"
@@ -67,27 +74,27 @@
       />
       <button
          type="button"
-         class="file-picker"
+         class="file-picker sfx-btn-icon"
          data-type="audio"
          data-target="flags.pf2e-aztecs-lock-n-load.damageType"
-         title="Browse Files"
+         title="{{localize 'PF2E-AZTECS-LOCK-N-LOAD.Tab.BrowseFiles'}}"
          tabindex="-1"
       >
          <i class="fas fa-file-audio"></i>
       </button>
       <button
          type="button"
-         class="play-sound"
+         class="play-sound sfx-btn-icon"
          data-field="damageType"
-         title="Play Sound"
+         title="{{localize 'PF2E-AZTECS-LOCK-N-LOAD.Tab.PlaySound'}}"
       >
          <i class="fas fa-play"></i>
       </button>
    </div>
 </div>
 <div class="form-group">
-   <label>Equip</label>
-   <div class="form-fields">
+   <label>{{localize "PF2E-AZTECS-LOCK-N-LOAD.Config.Equip"}}</label>
+   <div class="form-fields sfx-fields">
       <input
          type="text"
          name="flags.pf2e-aztecs-lock-n-load.unsheathe"
@@ -96,27 +103,27 @@
       />
       <button
          type="button"
-         class="file-picker"
+         class="file-picker sfx-btn-icon"
          data-type="audio"
          data-target="flags.pf2e-aztecs-lock-n-load.unsheathe"
-         title="Browse Files"
+         title="{{localize 'PF2E-AZTECS-LOCK-N-LOAD.Tab.BrowseFiles'}}"
          tabindex="-1"
       >
          <i class="fas fa-file-audio"></i>
       </button>
       <button
          type="button"
-         class="play-sound"
+         class="play-sound sfx-btn-icon"
          data-field="unsheathe"
-         title="Play Sound"
+         title="{{localize 'PF2E-AZTECS-LOCK-N-LOAD.Tab.PlaySound'}}"
       >
          <i class="fas fa-play"></i>
       </button>
    </div>
 </div>
 <div class="form-group">
-   <label>Holster</label>
-   <div class="form-fields">
+   <label>{{localize "PF2E-AZTECS-LOCK-N-LOAD.Config.Holster"}}</label>
+   <div class="form-fields sfx-fields">
       <input
          type="text"
          name="flags.pf2e-aztecs-lock-n-load.sheathe"
@@ -125,19 +132,48 @@
       />
       <button
          type="button"
-         class="file-picker"
+         class="file-picker sfx-btn-icon"
          data-type="audio"
          data-target="flags.pf2e-aztecs-lock-n-load.sheathe"
-         title="Browse Files"
+         title="{{localize 'PF2E-AZTECS-LOCK-N-LOAD.Tab.BrowseFiles'}}"
          tabindex="-1"
       >
          <i class="fas fa-file-audio"></i>
       </button>
       <button
          type="button"
-         class="play-sound"
+         class="play-sound sfx-btn-icon"
          data-field="sheathe"
-         title="Play Sound"
+         title="{{localize 'PF2E-AZTECS-LOCK-N-LOAD.Tab.PlaySound'}}"
+      >
+         <i class="fas fa-play"></i>
+      </button>
+   </div>
+</div>
+<div class="form-group">
+   <label>{{localize "PF2E-AZTECS-LOCK-N-LOAD.Config.MissAttack"}}</label>
+   <div class="form-fields sfx-fields">
+      <input
+         type="text"
+         name="flags.pf2e-aztecs-lock-n-load.miss"
+         data-field="miss"
+         value="{{miss}}"
+      />
+      <button
+         type="button"
+         class="file-picker sfx-btn-icon"
+         data-type="audio"
+         data-target="flags.pf2e-aztecs-lock-n-load.miss"
+         title="{{localize 'PF2E-AZTECS-LOCK-N-LOAD.Tab.BrowseFiles'}}"
+         tabindex="-1"
+      >
+         <i class="fas fa-file-audio"></i>
+      </button>
+      <button
+         type="button"
+         class="play-sound sfx-btn-icon"
+         data-field="miss"
+         title="{{localize 'PF2E-AZTECS-LOCK-N-LOAD.Tab.PlaySound'}}"
       >
          <i class="fas fa-play"></i>
       </button>

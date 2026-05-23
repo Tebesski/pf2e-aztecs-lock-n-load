@@ -1,0 +1,151 @@
+<form class="sfx-config-edit">
+   <div class="form-group">
+      <label>{{localize "PF2E-AZTECS-LOCK-N-LOAD.Config.Name"}}</label>
+      <input type="text" name="name" value="{{config.name}}" />
+   </div>
+   <div class="form-group">
+      <label>{{localize "PF2E-AZTECS-LOCK-N-LOAD.Config.WeaponBase"}}</label>
+      <input
+         type="text"
+         name="base"
+         value="{{config.base}}"
+         placeholder="{{localize 'PF2E-AZTECS-LOCK-N-LOAD.Config.Placeholder'}}"
+      />
+   </div>
+   <div class="form-group">
+      <label>{{localize "PF2E-AZTECS-LOCK-N-LOAD.Config.WeaponSlug"}}</label>
+      <input
+         type="text"
+         name="slug"
+         value="{{config.slug}}"
+         placeholder="{{localize 'PF2E-AZTECS-LOCK-N-LOAD.Config.Placeholder'}}"
+      />
+   </div>
+   <hr />
+   <h3>{{localize "PF2E-AZTECS-LOCK-N-LOAD.Config.SoundPaths"}}</h3>
+
+   <div class="form-group">
+      <label>{{localize "PF2E-AZTECS-LOCK-N-LOAD.Config.Reloading"}}</label>
+      <div class="form-fields sfx-fields">
+         <input
+            type="text"
+            name="flags.reloading"
+            value="{{config.flags.reloading}}"
+         />
+         <button
+            type="button"
+            class="file-picker sfx-btn-icon"
+            data-target="flags.reloading"
+         ><i class="fas fa-file-audio"></i></button>
+         <button
+            type="button"
+            class="play-sound sfx-btn-icon"
+            data-target="flags.reloading"
+         ><i class="fas fa-play"></i></button>
+      </div>
+   </div>
+
+   <div class="form-group">
+      <label>{{localize "PF2E-AZTECS-LOCK-N-LOAD.Config.DryFire"}}</label>
+      <div class="form-fields sfx-fields">
+         <input type="text" name="flags.empty" value="{{config.flags.empty}}" />
+         <button
+            type="button"
+            class="file-picker sfx-btn-icon"
+            data-target="flags.empty"
+         ><i class="fas fa-file-audio"></i></button>
+         <button
+            type="button"
+            class="play-sound sfx-btn-icon"
+            data-target="flags.empty"
+         ><i class="fas fa-play"></i></button>
+      </div>
+   </div>
+
+   <div class="form-group">
+      <label>{{localize
+            "PF2E-AZTECS-LOCK-N-LOAD.Config.ChangeDamageType"
+         }}</label>
+      <div class="form-fields sfx-fields">
+         <input
+            type="text"
+            name="flags.damageType"
+            value="{{config.flags.damageType}}"
+         />
+         <button
+            type="button"
+            class="file-picker sfx-btn-icon"
+            data-target="flags.damageType"
+         ><i class="fas fa-file-audio"></i></button>
+         <button
+            type="button"
+            class="play-sound sfx-btn-icon"
+            data-target="flags.damageType"
+         ><i class="fas fa-play"></i></button>
+      </div>
+   </div>
+
+   <div class="form-group">
+      <label>{{localize "PF2E-AZTECS-LOCK-N-LOAD.Config.Equip"}}</label>
+      <div class="form-fields sfx-fields">
+         <input
+            type="text"
+            name="flags.unsheathe"
+            value="{{config.flags.unsheathe}}"
+         />
+         <button
+            type="button"
+            class="file-picker sfx-btn-icon"
+            data-target="flags.unsheathe"
+         ><i class="fas fa-file-audio"></i></button>
+         <button
+            type="button"
+            class="play-sound sfx-btn-icon"
+            data-target="flags.unsheathe"
+         ><i class="fas fa-play"></i></button>
+      </div>
+   </div>
+
+   <div class="form-group">
+      <label>{{localize "PF2E-AZTECS-LOCK-N-LOAD.Config.Holster"}}</label>
+      <div class="form-fields sfx-fields">
+         <input
+            type="text"
+            name="flags.sheathe"
+            value="{{config.flags.sheathe}}"
+         />
+         <button
+            type="button"
+            class="file-picker sfx-btn-icon"
+            data-target="flags.sheathe"
+         ><i class="fas fa-file-audio"></i></button>
+         <button
+            type="button"
+            class="play-sound sfx-btn-icon"
+            data-target="flags.sheathe"
+         ><i class="fas fa-play"></i></button>
+      </div>
+   </div>
+
+   <div class="form-group">
+      <label>{{localize "PF2E-AZTECS-LOCK-N-LOAD.Config.MissAttack"}}</label>
+      <div class="form-fields sfx-fields">
+         <input type="text" name="flags.miss" value="{{config.flags.miss}}" />
+         <button
+            type="button"
+            class="file-picker sfx-btn-icon"
+            data-target="flags.miss"
+         ><i class="fas fa-file-audio"></i></button>
+         <button
+            type="button"
+            class="play-sound sfx-btn-icon"
+            data-target="flags.miss"
+         ><i class="fas fa-play"></i></button>
+      </div>
+   </div>
+
+   <footer class="sheet-footer flexrow">
+      <button type="button" class="save-config"><i class="fas fa-save"></i>
+         {{localize "PF2E-AZTECS-LOCK-N-LOAD.Config.SaveChanges"}}</button>
+   </footer>
+</form>

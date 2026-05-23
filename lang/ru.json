@@ -1,0 +1,71 @@
+{
+   "PF2E-AZTECS-LOCK-N-LOAD": {
+      "Settings": {
+         "SFXCompendiumMenu": {
+            "Name": "Компендиум SFX",
+            "Label": "Управление SFX",
+            "Hint": "Управление сохраненными конфигурациями SFX"
+         },
+         "GlobalAudio": {
+            "Name": "Воспроизводить SFX глобально",
+            "Hint": "Если включено, звуки оружия будут воспроизводиться для всех подключенных игроков."
+         },
+         "SFXVolume": {
+            "Name": "Громкость SFX",
+            "Hint": "Регулировка громкости звуковых эффектов."
+         }
+      },
+      "Compendium": {
+         "Title": "Компендиум SFX",
+         "NoConfigs": "Нет сохраненных конфигураций SFX.",
+         "AddBlank": "Добавить конфигурацию",
+         "NewBlank": "Новая конфигурация",
+         "DeleteTitle": "Удалить конфигурацию?",
+         "DeleteContent": "Вы уверены, что хотите удалить конфигурацию SFX для '<strong>{name}</strong>'?",
+         "Base": "База",
+         "Slug": "Slug"
+      },
+      "Config": {
+         "Title": "Редактировать конфигурацию SFX",
+         "Name": "Название",
+         "WeaponBase": "База оружия",
+         "WeaponSlug": "Slug оружия",
+         "Placeholder": "напр., bastard-sword",
+         "SoundPaths": "Пути к звукам",
+         "Reloading": "Перезарядка",
+         "DryFire": "Холостой выстрел",
+         "ChangeDamageType": "Смена типа урона",
+         "Equip": "Взять оружие",
+         "Holster": "Убрать оружие",
+         "MissAttack": "Промах",
+         "SaveChanges": "Сохранить изменения",
+         "OverwriteTitle": "Перезаписать конфигурацию?",
+         "OverwriteContent": "Конфигурация для этого {type} уже существует. Вы хотите её перезаписать?",
+         "WeaponBaseLabel": "базы оружия ({base})",
+         "WeaponSlugLabel": "slug ({slug})"
+      },
+      "Tab": {
+         "SaveConfig": "Сохранить",
+         "ApplyConfig": "Применить",
+         "BrowseFiles": "Обзор файлов",
+         "PlaySound": "Воспроизвести звук"
+      },
+      "Dialog": {
+         "SaveTitle": "Сохранить конфигурацию SFX",
+         "SaveWithBase": "Сохранить с базой оружия ({base})",
+         "SaveWithSlug": "Сохранить со slug ({slug})",
+         "SaveBtn": "Сохранить",
+         "CancelBtn": "Отмена",
+         "ApplyTitle": "Применить конфигурацию SFX",
+         "ApplyBtn": "Применить",
+         "Weapon": "Оружие",
+         "NA": "Н/Д"
+      },
+      "Notifications": {
+         "ConfigSaved": "Конфигурация SFX '{name}' сохранена.",
+         "NoConfigsSaved": "Нет сохраненных конфигураций SFX.",
+         "ConfigApplied": "Применена конфигурация SFX '{name}'.",
+         "ConfigUpdated": "Конфигурация SFX обновлена."
+      }
+   }
+}

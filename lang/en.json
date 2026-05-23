@@ -1,0 +1,71 @@
+{
+   "PF2E-AZTECS-LOCK-N-LOAD": {
+      "Settings": {
+         "SFXCompendiumMenu": {
+            "Name": "SFX Compendium",
+            "Label": "Manage SFX",
+            "Hint": "Manage saved Lock & Load weapon SFX configurations."
+         },
+         "GlobalAudio": {
+            "Name": "Play SFX Globally",
+            "Hint": "If enabled, weapon SFX will play for all connected players."
+         },
+         "SFXVolume": {
+            "Name": "SFX Volume",
+            "Hint": "Adjust the volume of SFX."
+         }
+      },
+      "Compendium": {
+         "Title": "SFX Compendium",
+         "NoConfigs": "No saved SFX Configs.",
+         "AddBlank": "Add new Config",
+         "NewBlank": "New Config",
+         "DeleteTitle": "Delete Config?",
+         "DeleteContent": "Are you sure you want to delete the SFX Config for '<strong>{name}</strong>'?",
+         "Base": "Base",
+         "Slug": "Slug"
+      },
+      "Config": {
+         "Title": "Edit SFX Config",
+         "Name": "Name",
+         "WeaponBase": "Weapon Base",
+         "WeaponSlug": "Weapon Slug",
+         "Placeholder": "e.g., bastard-sword",
+         "SoundPaths": "Sound paths",
+         "Reloading": "Reloading",
+         "DryFire": "Dry Fire",
+         "ChangeDamageType": "Change Damage Type",
+         "Equip": "Equip",
+         "Holster": "Holster",
+         "MissAttack": "Miss Attack",
+         "SaveChanges": "Save Changes",
+         "OverwriteTitle": "Overwrite Config?",
+         "OverwriteContent": "A Config for this {type} already exists. Do you want to overwrite it?",
+         "WeaponBaseLabel": "weapon base ({base})",
+         "WeaponSlugLabel": "slug ({slug})"
+      },
+      "Tab": {
+         "SaveConfig": "Save Config",
+         "ApplyConfig": "Apply Config",
+         "BrowseFiles": "Browse Files",
+         "PlaySound": "Play Sound"
+      },
+      "Dialog": {
+         "SaveTitle": "Save SFX Config",
+         "SaveWithBase": "Save with Weapon Base ({base})",
+         "SaveWithSlug": "Save with Weapon Slug ({slug})",
+         "SaveBtn": "Save",
+         "CancelBtn": "Cancel",
+         "ApplyTitle": "Apply SFX Config",
+         "ApplyBtn": "Apply",
+         "Weapon": "Weapon",
+         "NA": "N/A"
+      },
+      "Notifications": {
+         "ConfigSaved": "SFX Config '{name}' saved.",
+         "NoConfigsSaved": "No SFX configs saved.",
+         "ConfigApplied": "Applied SFX Config '{name}'.",
+         "ConfigUpdated": "SFX Config updated."
+      }
+   }
+}
